@@ -1,2 +1,2 @@
 This react app is about the login form that is having username and password as input field.
-Accepted the input filed and after clicking on login button displayed the username and password values in the console. Handled this by handlesubmit event.  
+Accepted the input field from the user and after clicking on login button displayed the username and password values in the console. Handled login button click event by handlesubmit event.  
