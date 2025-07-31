@@ -1,8 +1,11 @@
 // import './App.css';
-import Login from './login';
+import { BrowserRouter } from 'react-router-dom';
+import { useState } from 'react';
 
+import AppRoutes from './AppRoutes.js'
 
 function App() {
+  const [isLogedInOrNot,setIsLogedInOrNot] = useState(false);
   return (
     // <div className="App">
     //   <header className="App-header">
@@ -21,10 +24,13 @@ function App() {
     //   </header>
     // </div>
 
-    <div>
-      {/* <h1>Login Page</h1> */}
-      <Login />
-    </div>
+
+    // specifying the routes to be navigate 
+
+      <BrowserRouter>
+        <AppRoutes isLogedInOrNot={isLogedInOrNot} setIsLogedInOrNot={setIsLogedInOrNot}/>
+      </BrowserRouter>
+  
   );
 }
 

@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
-export default function Login() {
+export default function Login({ setIsLogedInOrNot }) {
+
+  // Using useNavigate hook 
+  const navigate=useNavigate();
+  
     // Function to handle form submission
     const handleSubmit=(e)=>{
         e.preventDefault();
@@ -9,6 +14,10 @@ export default function Login() {
         console.log("password: ",password);
         setUserName('');
         setPassword('');
+        setIsLogedInOrNot(true); // User is now logged in
+
+        navigate('/home');//navigate to home page after login
+        
     }
 
     // creating two states for accessing username and password
