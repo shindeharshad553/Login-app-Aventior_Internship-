@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 export default function Home() {
   return (
@@ -6,5 +6,5 @@ export default function Home() {
       <h1> Home Component </h1>
       <p>you are successfully redirected to the home component </p>
     </div>
-  )
+  );
 }
