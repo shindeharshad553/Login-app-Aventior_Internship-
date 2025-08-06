@@ -8,13 +8,14 @@ function App() {
   const [isLogedInOrNot, setIsLogedInOrNot] = useState(false);
   return (
     // specifying the routes to be navigate
-
-    <BrowserRouter>
-      <AppRoutes
-        isLogedInOrNot={isLogedInOrNot}
-        setIsLogedInOrNot={setIsLogedInOrNot}
-      />
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <AppRoutes
+          isLogedInOrNot={isLogedInOrNot}
+          setIsLogedInOrNot={setIsLogedInOrNot}
+        />
+      </BrowserRouter>
+    </>
   );
 }
 
