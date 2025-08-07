@@ -10,17 +10,21 @@ export default function Login({ setIsLogedInOrNot }) {
     console.log("Username:", username);
     console.log("Password:", password);
 
-    const data = {
-      username: username,
-      password: password,
-    };
+    // since the backend expects the form data because it accepts OAuth2PasswordRequestForm data
+    // const data = {
+    //   username: username,
+    //   password: password,
+    // };
+
+    const formdata = new URLSearchParams();
+    formdata.append("username", username);
+    formdata.append("password", password);
+
     // calling the backend login API
     axios
-      .post("http://localhost:8000/login", data)
+      .post("http://localhost:8000/login", formdata)
       .then((response) => {
-        console.log(
-          `response from the backend ${JSON.stringify(response.data)})`
-        );
+        console.log(localStorage.setItem("token", response.data.access_token));
       })
       .catch((error) => {
         console.log(error.response.data.detail);
