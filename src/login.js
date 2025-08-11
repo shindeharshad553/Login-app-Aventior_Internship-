@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 export default function Login({ setIsLogedInOrNot }) {
@@ -25,12 +25,13 @@ export default function Login({ setIsLogedInOrNot }) {
       .post("http://localhost:8000/login", formdata)
       .then((response) => {
         console.log(localStorage.setItem("token", response.data.access_token));
+        setIsLogedInOrNot(true);
+        localStorage.setItem("username", username);
+        navigate("/home");
       })
       .catch((error) => {
         console.log(error.response.data.detail);
       });
-    navigate("/home"); // Navigate to home page after login
-    setIsLogedInOrNot(true); // Set login state to true
   };
 
   return (
